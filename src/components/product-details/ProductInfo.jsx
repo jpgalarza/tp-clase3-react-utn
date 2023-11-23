@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState } from "react";
 
 //Este componente también se puede dividir en 2 Componentes
 

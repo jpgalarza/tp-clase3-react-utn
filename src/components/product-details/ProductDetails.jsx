@@ -1,7 +1,8 @@
-import { useState } from "react"
-import { Description } from "./Description"
-import { Gallery } from "./Gallery"
-import { ProductInfo } from "./ProductInfo"
+import { useState } from "react";
+import { Description } from "./Description";
+import { Gallery } from "./Gallery";
+import { ProductInfo } from "./ProductInfo";
+import swal from 'sweetalert';
 
 const prod = {
   name: 'Pileta Redonda 5500Lts 3Mts',
@@ -19,17 +20,43 @@ export const ProductDetails = () => {
   const handleBuy = (e, quantity) => {
     e.preventDefault();
 
-    if(product.stock === 0) return alert('No hay stock');
+    if(product.stock === 0) {
+      return swal({
+        title: "Lo sentimos ☹ ...",
+        text: "No hay stock",
+        icon: "error",
+        button: "Seguir navegando",
+      });
+    }
 
-    if(quantity < 1 || !Number.isInteger(+quantity)) return alert('Elige cantidad válida');
+    if(quantity < 1 || !Number.isInteger(+quantity)) {
+      return swal({
+        title: "Cantidad inválida ...",
+        text: "Elige cantidad válida",
+        icon: "error",
+        button: "Seguir navegando",
+      });
+    }
 
-    if(quantity > product.stock) return alert('No hay stock de la cantidad indicada');
+    if(quantity > product.stock) {
+      return swal({
+        title: "Selecciona menos ...",
+        text: "No hay stock de la cantidad indicada",
+        icon: "warning",
+        button: "Seguir navegando",
+      })
+    }
 
     const newStock = product.stock - quantity;
    
     setProduct({...product, stock: newStock});
 
-    alert(`Compraste ${quantity} unid. de ${product.name}`);
+    return swal({
+      title: "Gracias por su compra!!",
+      text: `Compraste ${quantity} unid. de ${product.name}`,
+      icon: "success",
+      button: "Seguir comprando",
+    })
   };
 
   return (
