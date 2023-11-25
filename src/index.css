@@ -144,18 +144,26 @@ main {
 }
 
 .info-extra>h2 {
-  margin: 10px 0 3px 0;
+  margin: 20px 0 5px 0;
 }
 
 .info-extra>h2:first-child {
   margin-top: 0;
 }
 
-.info-extra>a {
+.info-extra ul {
+  list-style: none;
+}
+
+.info-extra a {
   text-decoration: none;
   color: #000000;
-  margin: 6px 0;
-  font-weight: bold;
+}
+
+.icon {
+  font-size: 1.6rem;
+  color: #104065;
+  margin-right: 10px;
 }
 
 .description {

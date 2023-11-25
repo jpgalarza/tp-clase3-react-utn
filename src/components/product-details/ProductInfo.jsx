@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FaRegCreditCard, FaTruck, FaStoreAlt } from "react-icons/fa";
 
 //Este componente también se puede dividir en 2 Componentes
 
@@ -26,12 +27,16 @@ export const ProductInfo = ({ product: {name, sku, price, stock}, handleBuy}) =>
       </div>
       <div className="info-extra">
         <h2>Medios de Pago:</h2>
-        <a href="">💳 3 cuotas s/int con Banco Provincia</a>
-        <a href="">💳 6 cuotas s/int com Banco Nación</a>
-        <a href="">💳 Otras promociones bancarias</a>
+        <ul>
+          <li><a href=""><span className="icon"><FaRegCreditCard/></span>3 cuotas s/int con Banco Provincia</a></li>
+          <li><a href=""><span className="icon"><FaRegCreditCard/></span>6 cuotas s/int com Banco Nación</a></li>
+          <li><a href=""><span className="icon"><FaRegCreditCard/></span>Otras promociones bancarias</a></li>
+        </ul>
         <h2>Formas de Envío:</h2>
-        <a href="">🚛 Envío a domicilio</a>
-        <a href="">🏬 Retiro gratis en sucursales</a>
+        <ul>
+          <li><a href=""><span className="icon"><FaTruck/></span>Envío a domicilio</a></li>
+          <li><a href=""><span className="icon"><FaStoreAlt/></span>Retiro gratis en sucursales</a></li>
+        </ul>
       </div>
     </section>
   )
